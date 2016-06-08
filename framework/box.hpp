@@ -4,13 +4,20 @@
 #include "shape.hpp"
 #include <glm/vec3.hpp>
 
-class Box
+class Box : public Shape
 {
 public:
+	//constructors
 	 Box();
+	 Box(glm::vec3 const& min, glm::vec3 const& max);
 
+	 //getter
 	 glm::vec3 const& min() const;
 	 glm::vec3 const& max() const;
+
+	 //functions
+	 float volume() const override;
+	 float area() const override;
 
 
 private:

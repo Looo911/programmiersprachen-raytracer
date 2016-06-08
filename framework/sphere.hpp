@@ -7,12 +7,15 @@
 class Sphere : public Shape
 {
 public:
+	//constructors
 	 Sphere();
+	 Sphere(glm::vec3 const& ctr, float r);
 
 	 //getter
 	 glm::vec3 const& center() const;
 	 float radius() const;
 
+	 //functions
 	 float volume() const override;
 	 float area() const override;
 
