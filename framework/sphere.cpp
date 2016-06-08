@@ -1,5 +1,6 @@
 #include "sphere.hpp"
 #include <glm/vec3.hpp>
+#include <cmath>
 
 
 //Constructors
@@ -16,3 +17,9 @@ glm::vec3 const& Sphere::center() const
 float Sphere::radius() const 
 	{return m_radius;}
 
+
+//
+float Sphere::volume() const
+	{
+		return 4.0f / 3.0f * (M_PI* m_radius * m_radius * m_radius);
+	}
