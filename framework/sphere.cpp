@@ -1,6 +1,8 @@
 #include "sphere.hpp"
 #include <glm/vec3.hpp>
 #include <cmath>
+#define _USE_MATH_DEFINES
+
 
 
 //Constructors
