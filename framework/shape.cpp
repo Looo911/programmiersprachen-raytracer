@@ -15,6 +15,20 @@ Shape::~Shape()
 {
 }
 
+std::ostream& Shape::print(std::ostream& os) const
+{
+	os 	<< "Color:  " << color_ << "\n"
+		<< "Name:   " << name_ << "\n";
+
+	return os;
+}
+
+std::ostream& operator <<(std::ostream& os, Shape const& s)
+{
+	return s.print(os);
+}
+
+
 Color Shape::color() const
 {
   return color_;

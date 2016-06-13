@@ -28,6 +28,24 @@ TEST_CASE("test sphere area", "[function]")
 	REQUIRE (a.area() ==  Approx(113.097335529));
 }
 
+TEST_CASE("Sphere with name and colorful color", "[constructor]")
+{
+	Sphere a{"KEINE KUGEL", {1.0f, 1.0f, 1.0f},
+	 {2.0f, 3.0f, 4.0f} , {3.0f}};
+	REQUIRE (a.name() ==  ("KEINE KUGEL"));
+	REQUIRE (a.color() ==  Color (1.0f, 1.0f, 1.0f));
+
+}
+
+TEST_CASE("Sphere with name and colorful color", "[osstream]")
+{
+	Sphere a{"KEINE KUGEL", {1.0f, 1.0f, 1.0f},
+	 {2.0f, 3.0f, 4.0f} , {3.0f}};
+	REQUIRE (a.name() ==  ("KEINE KUGEL"));
+	REQUIRE (a.color() ==  Color (1.0f, 1.0f, 1.0f));
+
+}
+
 
 
 

@@ -25,6 +25,11 @@ struct Color
     return os;
   }
 
+  friend bool operator==(Color const& lhs, Color const& rhs)
+  {
+    return lhs.r == rhs.r && lhs.g == rhs.g && lhs.b == rhs.b;
+  }
+
   Color& operator+=(Color const& other)
   {
     r += other.r;
