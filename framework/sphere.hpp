@@ -3,6 +3,8 @@
 
 #include "shape.hpp"
 #include <glm/vec3.hpp>
+#include <glm/glm.hpp>
+#include <glm/gtx/intersect.hpp>
 
 class Sphere : public Shape
 {
@@ -21,6 +23,10 @@ public:
 	 float area() const override;
 
 	 std::ostream& print(std::ostream& os) const override;
+
+	 bool intersect(glm::vec3 const& orig,
+   			glm::vec3 const& dir, float& dist) const;
+
 
 private:
 	float m_radius;

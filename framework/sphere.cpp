@@ -45,6 +45,13 @@ float Sphere::area() const
 		return 4.0f* M_PI * m_radius * m_radius;
 	}
 
+bool Sphere::intersect(glm::vec3 const& orig,
+   glm::vec3 const& dir, float& dist) const
+	{
+		return glm::intersectRaySphere(orig, dir,
+			m_center, m_radius, dist);
+	}
+
 std::ostream& Sphere::print(std::ostream& os) const
 {
 	Shape::print(os);

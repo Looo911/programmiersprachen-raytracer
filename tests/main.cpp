@@ -2,6 +2,8 @@
 #include <catch.hpp>
 #include <box.hpp>
 #include <sphere.hpp> 
+#include <glm/glm.hpp>
+#include <glm/gtx/intersect.hpp>
 
 TEST_CASE("test box volume", "[function]")
 {
@@ -48,17 +50,24 @@ TEST_CASE("Not a Sphere with name and colorful color + cout", "[constructor]")
 
 }
 
-/*
-TEST_CASE("Print sweet things", "[osstream]")
+
+TEST_CASE("intersectRaySphere","[intersect]")
 {
-	Sphere a{"KEINE KUGEL", {1.0f, 1.0f, 1.0f},
-	 {2.0f, 3.0f, 4.0f} , {3.0f}};
-	std::cout << a;
-
+	//Ray
+	glm::vec3 ray_origin{0.0,0.0,0.0};
+	//raydirectionhastobenormalized!
+	//youcanuse:
+	//v = glm::normalize(some_vector)
+	glm::vec3 ray_direction{0.0,0.0,1.0};
+	//Sphere
+	glm::vec3 sphere_center{0.0,0.0,5.0};
+	float sphere_radius{1.0};
+	float distance{0.0};
+	auto result=glm::intersectRaySphere(ray_origin,
+		ray_direction, sphere_center,sphere_radius * sphere_radius,
+		distance);
+	REQUIRE(distance==Approx(4.0f));
 }
-*/
-
-
 
 
 
