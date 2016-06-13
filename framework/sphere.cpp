@@ -44,3 +44,15 @@ float Sphere::area() const
 	{
 		return 4.0f* M_PI * m_radius * m_radius;
 	}
+
+std::ostream& Sphere::print(std::ostream& os) const
+{
+	Shape::print(os);
+	os << "Radius:  " << m_radius << "\n"
+	   << "Center:   ("
+	   << m_center.x << ", "
+	   << m_center.y << ", "
+	   << m_center.z << ")" << "\n";
+
+	return os;
+}

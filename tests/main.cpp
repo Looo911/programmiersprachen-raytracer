@@ -34,17 +34,32 @@ TEST_CASE("Sphere with name and colorful color", "[constructor]")
 	 {2.0f, 3.0f, 4.0f} , {3.0f}};
 	REQUIRE (a.name() ==  ("KEINE KUGEL"));
 	REQUIRE (a.color() ==  Color (1.0f, 1.0f, 1.0f));
+	std::cout << a << "\n";
 
 }
 
-TEST_CASE("Sphere with name and colorful color", "[osstream]")
+TEST_CASE("Not a Sphere with name and colorful color + cout", "[constructor]")
+{
+	Box a{"WIRKLICH KEINE KUGEL", {1.0f, 1.0f, 1.0f},
+	 {2.0f, 3.0f, 4.0f}, {4.0f, 6.0f, 8.0f}};
+	REQUIRE (a.name() ==  ("WIRKLICH KEINE KUGEL"));
+	REQUIRE (a.color() ==  Color (1.0f, 1.0f, 1.0f));
+	std::cout << a << "\n";
+
+}
+
+/*
+TEST_CASE("Print sweet things", "[osstream]")
 {
 	Sphere a{"KEINE KUGEL", {1.0f, 1.0f, 1.0f},
 	 {2.0f, 3.0f, 4.0f} , {3.0f}};
-	REQUIRE (a.name() ==  ("KEINE KUGEL"));
-	REQUIRE (a.color() ==  Color (1.0f, 1.0f, 1.0f));
+	std::cout << a;
 
 }
+*/
+
+
+
 
 
 

@@ -15,7 +15,7 @@ Box::Box(glm::vec3 const& min, glm::vec3 const& max) :
 	m_min{min},
 	m_max{max}
 	{}
-	
+
 Box::Box(std::string const& name, Color const& clr, glm::vec3 const& min, glm::vec3 const& max )
     : Shape{name, clr},
     m_min{min},
@@ -42,4 +42,19 @@ float Box::area() const
 	auto diff = m_max - m_min;
 
 	return 2*(diff.y*diff.z + diff.x*diff.z + diff.x*diff.y); 
+}
+
+std::ostream& Box::print(std::ostream& os) const
+{
+	Shape::print(os);
+	os << "Min:   ("
+	   << m_min.x << ", "
+	   << m_min.y << ", "
+	   << m_min.z << ")" << "\n" 
+	   << "Max:   ("
+	   << m_max.x << ", "
+	   << m_max.y << ", "
+	   << m_max.z << ")" << "\n";
+
+	return os;
 }

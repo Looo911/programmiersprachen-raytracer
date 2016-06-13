@@ -17,8 +17,8 @@ Shape::~Shape()
 
 std::ostream& Shape::print(std::ostream& os) const
 {
-	os 	<< "Color:  " << color_ << "\n"
-		<< "Name:   " << name_ << "\n";
+	os 	<< "Name:   " << name_ << "\n"
+		<< "Color:  " << color_ << "\n";
 
 	return os;
 }
