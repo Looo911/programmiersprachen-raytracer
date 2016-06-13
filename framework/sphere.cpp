@@ -7,11 +7,19 @@
 
 //Constructors
 Sphere::Sphere():
+	Shape{},
     m_center{0.0},
     m_radius{1.0f}
     {}
 
 Sphere::Sphere(glm::vec3 const& ctr, float r):
+	Shape{},
+	m_center{ctr},
+	m_radius{r}
+	{}
+
+Sphere::Sphere(std::string const& name, Color const& clr, glm::vec3 const& ctr, float r):
+	Shape{name, clr},
 	m_center{ctr},
 	m_radius{r}
 	{}

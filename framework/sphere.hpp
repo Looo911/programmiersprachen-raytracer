@@ -10,6 +10,7 @@ public:
 	//constructors
 	 Sphere();
 	 Sphere(glm::vec3 const& ctr, float r);
+	 Sphere(std::string const& name, Color const& clr, glm::vec3 const& ctr, float r);
 
 	 //getter
 	 glm::vec3 const& center() const;
