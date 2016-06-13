@@ -5,15 +5,22 @@
 
 //Constructors
 Box::Box() :
+    Shape{},
     m_min{0.0},
     m_max{0.0}
     {}
 
 Box::Box(glm::vec3 const& min, glm::vec3 const& max) :
+	Shape{},
 	m_min{min},
 	m_max{max}
 	{}
-
+Box::Box(std::string const& name, Color const& clr, glm::vec3 const& min, glm::vec3 const& max )
+    : Shape{name, clr},
+    m_min{min},
+	m_max{max}
+	{}
+	
 //getter
 glm::vec3 const& Box::min() const 
 	{return m_min;}

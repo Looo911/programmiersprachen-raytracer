@@ -9,6 +9,7 @@ class Box : public Shape
 public:
 	//constructors
 	 Box();
+	 Box(std::string const& name, Color const& clr, glm::vec3 const& min, glm::vec3 const& max );
 	 Box(glm::vec3 const& min, glm::vec3 const& max);
 
 	 //getter
