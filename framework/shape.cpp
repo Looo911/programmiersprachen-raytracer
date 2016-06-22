@@ -1,24 +1,24 @@
 #include "shape.hpp"
-#include "color.hpp"
+
 
 Shape::Shape():
     name_{"default"},
-    color_{0.0f, 0.0f, 0.0f} 
-    {}
+    material_{} 
+    {std::cout<< "Shape constructed" << "\n";}
 
-Shape::Shape(std::string const& name, Color const& clr):
+Shape::Shape(std::string const& name, Material const& clr):
     name_{name},
-    color_{clr} 
-    {}
+    material_{clr} 
+    {std::cout<< "Shape constructed" << "\n";}
 
 Shape::~Shape()
-{
-}
+{std::cout<< "Shape destructed" << "\n";}
+
 
 std::ostream& Shape::print(std::ostream& os) const
 {
 	os 	<< "Name:   " << name_ << "\n"
-		<< "Color:  " << color_ << "\n";
+		<< "Material:  " << material_ << "\n";
 
 	return os;
 }
@@ -29,12 +29,12 @@ std::ostream& operator <<(std::ostream& os, Shape const& s)
 }
 
 
-Color Shape::color() const
+Material const& Shape::material() const
 {
-  return color_;
+  return material_;
 }
 	
-std::string Shape::name() const
+std::string const& Shape::name() const
 {
   return name_;
 }

@@ -2,6 +2,7 @@
 #define SPHERE_HPP
 
 #include "shape.hpp"
+#include "material.hpp"
 #include <glm/vec3.hpp>
 #include <glm/glm.hpp>
 #include <glm/gtx/intersect.hpp>
@@ -12,8 +13,9 @@ public:
 	//constructors
 	 Sphere();
 	 Sphere(glm::vec3 const& ctr, float r);
-	 Sphere(std::string const& name, Color const& clr, glm::vec3 const& ctr, float r);
+	 Sphere(std::string const& name, Material const& mtrl, glm::vec3 const& ctr, float r);
 
+	 ~Sphere();
 	 //getter
 	 glm::vec3 const& center() const;
 	 float radius() const;

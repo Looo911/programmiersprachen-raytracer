@@ -16,8 +16,8 @@ Box::Box(glm::vec3 const& min, glm::vec3 const& max) :
 	m_max{max}
 	{}
 
-Box::Box(std::string const& name, Color const& clr, glm::vec3 const& min, glm::vec3 const& max )
-    : Shape{name, clr},
+Box::Box(std::string const& name, Material const& mtrl, glm::vec3 const& min, glm::vec3 const& max )
+    : Shape{name, mtrl},
     m_min{min},
 	m_max{max}
 	{}
@@ -43,6 +43,29 @@ float Box::area() const
 
 	return 2*(diff.y*diff.z + diff.x*diff.z + diff.x*diff.y); 
 }
+/*
+bool Box::intersect(box b, ray r) {
+    double tmin = -INFINITY, tmax = INFINITY;
+ 
+    for (int i = 0; i < 3; ++i) {
+        double t1 = (b.min.x - origin.x)*r.dir_inv[i];
+        double t2 = (b.max[i] - r.origin[i])*r.dir_inv[i];
+ 
+        tmin = max(tmin, min(t1, t2));
+        tmax = min(tmax, max(t1, t2));
+    }
+
+    for (int i = 0; i < 3; ++i) {
+        double t1 = (b.min[i] - r.origin[i])*r.dir_inv[i];
+        double t2 = (b.max[i] - r.origin[i])*r.dir_inv[i];
+ 
+        tmin = max(tmin, min(t1, t2));
+        tmax = min(tmax, max(t1, t2));
+    }
+ 
+    return tmax > max(tmin, 0.0);
+}
+*/
 
 std::ostream& Box::print(std::ostream& os) const
 {

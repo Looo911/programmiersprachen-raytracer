@@ -1,18 +1,19 @@
 #ifndef SHAPE_HPP
 #define SHAPE_HPP
-#include "color.hpp"
+#include "material.hpp"
+#include <ostream>
 
 class Shape
 {
 public:
 	//constr./Destr
 	Shape();
-	Shape(std::string const& name, Color const& clr);
+	Shape(std::string const& name, Material const& mtrl);
 	virtual ~Shape();
 
 	//getter
-	Color color() const;
-	std::string name() const;
+	Material const& material() const;
+	std::string const& name() const;
 
 	virtual float area() const = 0;
 	virtual float volume() const = 0;
@@ -22,7 +23,7 @@ public:
 
 private:
 	std::string name_;
-	Color color_;
+	Material material_;
 
 };
 

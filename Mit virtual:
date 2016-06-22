@@ -1,0 +1,46 @@
+
+Statischer Typ:
+Links: Statischer Typ, bleibt so.
+Im 2. Bsp.: rechts dynamisch, da er sich an den geforderten Typen anpasst.
+
+Mit virtual:
+
+Letzter test-----------------
+Shape constructed
+Sphere constructed
+Shape constructed
+Sphere constructed
+Sphere destructed
+Shape destructed
+Sphere destructed
+Shape destructed
+Letzter test-----------------
+
+
+ohne:
+
+Letzter test-----------------
+Shape constructed
+Sphere constructed
+Shape constructed
+Sphere constructed
+Sphere destructed
+Shape destructed
+Shape destructed
+Letzter test-----------------
+
+Klassenhierarchie:
+Klassen vererben Eigenschaften von übergeordneten Klassen. (Shape, untergeordnet Sphere).
+
+
+Objekt:
+Untergeordnete Objekte liegen innerhalb eines anderen Objektes. Diese Objekte sind unabhängig voneinander. (Color und Radius untergeordnete Objekte vom Objekt Kreis.)
+
+Klassendiagramm:
+Aggregation: Dinge sind drunter, vererbt.
+
+Objekthierarchie:
+Composition: Dinge sind drin.
+
+
+

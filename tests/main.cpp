@@ -32,21 +32,23 @@ TEST_CASE("test sphere area", "[function]")
 
 TEST_CASE("Sphere with name and colorful color", "[constructor]")
 {
-	Sphere a{"KEINE KUGEL", {1.0f, 1.0f, 1.0f},
+	Sphere a{"KEINE KUGEL", {},
 	 {2.0f, 3.0f, 4.0f} , {3.0f}};
 	REQUIRE (a.name() ==  ("KEINE KUGEL"));
-	REQUIRE (a.color() ==  Color (1.0f, 1.0f, 1.0f));
+	//REQUIRE (a.color() ==  Color (1.0f, 1.0f, 1.0f));
 	std::cout << a << "\n";
+	std::cout << "----------------------" << "\n";
 
 }
 
 TEST_CASE("Not a Sphere with name and colorful color + cout", "[constructor]")
 {
-	Box a{"WIRKLICH KEINE KUGEL", {1.0f, 1.0f, 1.0f},
+	Box a{"WIRKLICH KEINE KUGEL", {},
 	 {2.0f, 3.0f, 4.0f}, {4.0f, 6.0f, 8.0f}};
 	REQUIRE (a.name() ==  ("WIRKLICH KEINE KUGEL"));
-	REQUIRE (a.color() ==  Color (1.0f, 1.0f, 1.0f));
+	//REQUIRE (a.color() ==  Color (1.0f, 1.0f, 1.0f));
 	std::cout << a << "\n";
+	std::cout << "----------------------" << "\n";
 
 }
 
@@ -69,11 +71,55 @@ TEST_CASE("intersectRaySphere","[intersect]")
 	REQUIRE(distance==Approx(4.0f));
 }
 
+TEST_CASE("intersectRaySphere: hit","[intersect]")
+{
+	//Ray
+	glm::vec3 ray_origin{0.0,0.0,0.0};
+	glm::vec3 ray_direction{0.0,0.0,1.0};
+	//Sphere
+	Sphere a{"KEINE KUGEL", {},
+	 glm::vec3{0.0f, 0.0f, 10.0f} , {3.0f}};
+
+	float distance{0.0};
+
+	REQUIRE(a.intersect(ray_origin, ray_direction, distance));
+
+	
+	REQUIRE(distance==Approx(7.0f));
+}
+
+TEST_CASE("intersectRaySphere: miss","[intersect]")
+{
+	//Ray
+	glm::vec3 ray_origin{1.0,1.0,1.0};
+	glm::vec3 ray_direction{1.0,0.0,0.0};
+	//Sphere
+	Sphere a{"KEINE KUGEL", {},
+	 glm::vec3{10.0f, 0.0f, 10.0f} , {3.0f}};
+
+	float distance{0.0};
+
+	REQUIRE((a.intersect(ray_origin, ray_direction, distance))==false);
+
+}
+
 
 
 
 
 int main(int argc, char *argv[])
-{
+{	
+	/*
+	Color red (255 , 0 , 0);
+	glm::vec3 position(0.0);
+	Sphere *s1 = new Sphere ("sphere0", red, position,1.2);
+	Shape *s2 = new Sphere ("sphere1", red, position,1.2);
+	//s1->print(std::cout);
+	//s2->print(std::cout);
+
+	delete s1 ;
+	delete s2 ;
+	*/
+	
   return Catch::Session().run(argc, argv);
 }
